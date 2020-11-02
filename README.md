@@ -23,8 +23,8 @@ The project requires the team to create a Visualforce application that displays 
 # Get Started
 * git clone Project from GitHub.
 * Use Visual Studio Code.
-* Establish Authentication with org.
-* Deploy to org with manifest.
+* Use palette: SFDX: Authorize an Org
+* Use palette: SFDX: Deploy Source in Manifest to Org
 * Enable Community.
 * Create with Community with Tab + Visualforce.
 * Add Account Detail and MailList page as tabs.
