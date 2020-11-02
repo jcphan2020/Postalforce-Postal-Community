@@ -1,0 +1,39 @@
+<apex:page standardController="Mail__c" extensions="MailControllerExtension" recordSetVar="mailList" action="{!getMail}">
+	<apex:form >
+        <apex:pageBlock >
+            Section
+            <apex:pageBlockSection >
+                <apex:commandButton value="List View"/>
+                <apex:commandButton value="Search" action="{!redirectSearchPage}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:form >
+    	<apex:pageBlock title="Mail List" id="mails_list">
+            Filter:
+            <apex:selectList value="{!statusOptions}" size="1">
+                <apex:selectOption itemLabel="All" itemValue="All"></apex:selectOption>
+            	<apex:selectOption itemLabel="In Transit" itemValue="In Transit"></apex:selectOption>
+                <apex:selectOption itemLabel="Delivered" itemValue="Delivered"></apex:selectOption>
+            	<apex:actionSupport event="onchange" action="{!getMail}" reRender="mails_list"/>
+        	</apex:selectList>
+    		<apex:pageBlockTable value="{!mailList}" var="m">
+                <apex:column value="{!m.Id}" title="Tracking Number"/>
+        		<apex:column value="{!m.Inhabitant__c}"/>
+            	<apex:column value="{!m.Mailing_Address__c}"/>
+            	<apex:column value="{!m.Insurance__c}"/>
+            	<apex:column value="{!m.Value__c}"/>
+            	<apex:column value="{!m.Delivered__c}"/>
+        	</apex:pageBlockTable>
+		</apex:pageBlock>
+	</apex:form>
+	<apex:form >
+    	<apex:pageBlock >
+            <apex:outputLabel for="nameInput" value="Tracking ID = "/>
+            <apex:inputText value="{!recordID}" id="nameInput"/>
+            <br/>
+            <apex:commandButton value="Find Matching Packages" action="{!redirect}"/>
+            <br/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

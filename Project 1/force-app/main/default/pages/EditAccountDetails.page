@@ -1,0 +1,43 @@
+<!--apex:page Controller="EditAccountDetailsController"-->
+<apex:page standardController="Contact" extensions="AccountDetailsExtension">
+    <head>
+        <title>Account Details</title>
+    </head>
+    <apex:pageBlock title="Account Details">
+        <apex:form >
+        	<apex:pageBlockSection title="Contact Information">
+            	<apex:outputLabel for="firstNameInput" value="First Name*: "/>
+            	<apex:inputText value="{!firstName}" id="firstNameInput"/>
+                <apex:outputLabel for="lastNameInput" value="Last Name*: "/>
+            	<apex:inputText value="{!lastName}" id="lastNameInput"/>
+                <apex:outputLabel for="NicknameInput" value="Nickname*: "/>
+            	<apex:inputText value="{!nickname}" id="NicknameInput"/>
+                <apex:outputLabel for="titleInput" value="Title: "/>
+            	<apex:inputText value="{!title}" id="titleInput"/>
+            	<apex:outputLabel for="usernameInput" value="Username*: "/>
+            	<apex:outputText value="{!username}" id="usernameInput"/>
+            	<apex:outputLabel for="emailInput" value="Email*: "/>
+            	<apex:inputText value="{!email}" id="emailInput"/>
+            	<apex:outputLabel for="phoneInput" value="Phone: "/>
+            	<apex:inputText value="{!phone}" id="phoneInput"/>
+                *Users MUST have a first name, last name, username and email.
+                <br/>
+                Any attempts to change these to nothing will return the current entry.
+        	</apex:pageBlockSection>
+        	<apex:pageBlockSection title="Address">
+            	<apex:outputLabel for="streetInput" value="Street: "/>
+            	<apex:inputText value="{!street}" id="streetInput"/>
+            	<apex:outputLabel for="cityInput" value="City: "/>
+            	<apex:inputText value="{!city}" id="cityInput"/> 
+           		<apex:outputLabel for="stateInput" value="State: "/>
+            	<apex:inputText value="{!state}" id="stateInput"/>
+           		<apex:outputLabel for="postalCodeInput" value="Postal Code: "/>
+            	<apex:inputText value="{!postalCode}" id="postalCodeInput"/> 
+           		<apex:outputLabel for="countryInput" value="Country: "/>
+            	<apex:inputText value="{!country}" id="countryInput"/>
+        	</apex:pageBlockSection>
+        	<apex:commandButton value="Save" action="{!updateContact}" />
+            <apex:commandButton value="Return to Account Details" action="{!returnDetails}" />
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

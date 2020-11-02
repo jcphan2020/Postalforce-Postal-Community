@@ -1,0 +1,32 @@
+<apex:page standardController="User" extensions="AccountDetailsExtension">
+    <head>
+        <title>Account Details</title>
+    </head>
+    <apex:pageBlock title="Account Details">
+        <apex:pageBlockSection title="Contact Information">
+            Name: {!$User.FirstName} {!$User.LastName} 
+            <br/>
+            Username: {!$User.Username}
+            <br/>
+            Email: {!$User.Email}
+            <br/>
+            Phone: {!$User.Phone}
+            <br/>
+            Title: {!$User.Title}
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Address">
+            Street: {!$User.Street}
+           	<br/>
+            City: {!$User.City} 
+           	<br/>
+           	State: {!$User.State} 
+           	<br/>
+           	Postal Code: {!$User.PostalCode} 
+           	<br/>
+           	Country: {!$User.Country}
+        </apex:pageBlockSection>
+        <apex:form >
+        	<apex:commandButton value="Edit Information" action="{!editAccount}"/>
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

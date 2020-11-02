@@ -1,0 +1,57 @@
+<!-- Designer: Johnson Phan
+     Visualforce page developed to search Mail (Package) contents. Information is displayed as following
+     Navigation Bar
+     Header Display
+     Record Details
+     Search Bar
+-->
+<apex:page standardController="Mail__c" extensions="PackageExtension">
+    <!-- Below is the Homepage Navigation Bar -->
+    <apex:pageBlock >
+        <apex:outputPanel layout="block">
+            <apex:pageBlockSection title="Navigation Bar">
+            	<apex:form >
+                    <apex:commandButton value="List View" action="{!redirectList}" style="width:150px"/>
+                    <apex:commandButton value="Search" style="width:150px"/>
+                </apex:form>
+            </apex:pageBlockSection>
+        </apex:outputPanel>
+    </apex:pageBlock>
+    
+    <!-- Below is the detailed record page with information to the Mail (Package) -->
+    <apex:pageBlock >
+        <apex:outputPanel layout="block">
+            <apex:pageBlockSection title="Search Record Tracking Id {!selPackage.Id}">
+                <apex:outputField value="{!selPackage.Name}"/>
+                <apex:outputField value="{!selPackage.Delivered__c}"/>
+                <apex:outputField value="{!selPackage.Insurance__c}"/>
+                <apex:outputField value="{!selPackage.Missing__c}"/>
+                <apex:outputField value="{!selPackage.Value__c}"/>
+                <apex:outputField value="{!selPackage.Weight__c}"/>
+                <apex:outputField value="{!selPackage.Width__c}"/>
+                <apex:outputField value="{!selPackage.Height__c}"/>
+                <apex:outputField value="{!selPackage.Mailing_Address__c}"/>
+                <apex:outputField value="{!selPackage.Addressed_To__c}"/>
+            </apex:pageBlockSection>
+        </apex:outputPanel>
+        <!-- Display an error message should package not be found -->
+        <apex:form >
+            <apex:pageBlock >
+                <apex:outputText value="{!errorMessage}"/>
+            </apex:pageBlock>
+    	</apex:form>
+    </apex:pageBlock>
+    
+    <!-- Below is the Search Bar to find Mail (Package) -->
+    <apex:pageBlock >
+        <apex:outputPanel layout="block">
+        	<apex:pageBlockSection title="Search Bar">
+            	<apex:form >
+                <apex:outputLabel for="nameInput" value="Tracking ID = "/>
+                <apex:inputText value="{!specificId}" id="nameInput"/>
+                <apex:commandButton value="Find Packages" action="{!CustomSearch}" style="width:150px"/>
+            </apex:form>
+            </apex:pageBlockSection>
+        </apex:outputPanel>
+    </apex:pageBlock>
+</apex:page>
