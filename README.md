@@ -13,6 +13,9 @@ The project requires the team to create a Visualforce application that displays 
 * Case can be used to create comments or issues for agents to handle.
 
 # Technology
+* Developer Console
+* Visual Studio Code
+* SOQL
 * Visualforce
 * Apex Class
 * Salesforce Community
@@ -32,6 +35,6 @@ The project requires the team to create a Visualforce application that displays 
 * Edit User info, view packages, view package detail
 
 # Contributors
-Johnson Phan
-Wesley Williams
-Mathew Coger
+* Johnson Phan
+* Wesley Williams
+* Mathew Coger
